@@ -83,6 +83,8 @@ peste(X,Y),imprimir_mensaje_posicion(' hay peste en ',X,Y).
 hay_brisa(X,Y) :-
 brisa(X,Y),imprimir_mensaje_posicion(' hay brisa en ',X,Y).
 
+
+
 verificar_brisa_peste(X,Y) :-
 hay_brisa(X,Y),hay_peste(X,Y).
 
@@ -112,12 +114,13 @@ imprimir_posicion(X,Y).
 es_tablero(X,Y) :-
 celda(X,Y).
 
+
 der :- 
 persona(X,Y),
 SiguienteY is Y+1,
 es_tablero(X,SiguienteY)
 -> (actualizar_persona(X,Y,X,SiguienteY), comprobar_estado_persona)
-; imprimir_mensaje_posicion('no es tablero ',X,SiguienteY).
+; imprimir_mensaje_posicion('no es tablero ',X,Y).
 
 izq :- 
 persona(X,Y),
